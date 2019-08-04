@@ -14,6 +14,13 @@ const catchError = async (ctx, next) => {
                 request: `${ctx.method} ${ctx.path}`
             }
             ctx.status = error.code
+        } else {
+            ctx.body = {
+                msg: 'we made a misdake ',
+                error_code: 999,
+                request: `${ctx.method} ${ctx.path}`
+            }
+            ctx.status = 500
         }
     }
 }

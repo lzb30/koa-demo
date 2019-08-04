@@ -1,10 +1,12 @@
 const Router = require('koa-router')
 const requireDirectory = require('require-directory')
 
+
 class InitManager {
     static InitCore(app) {
         InitManager.app = app
         InitManager.InitLoadRouters()
+        InitManager.InitLoadHttpException()
     }
 
     static InitLoadRouters() {
@@ -18,6 +20,11 @@ class InitManager {
                 InitManager.app.use(obj.routes())
             }
         }
+    }
+
+    static InitLoadHttpException() {
+        const errors = require('./http-exception')
+        global.errors = errors
     }
 }
 
