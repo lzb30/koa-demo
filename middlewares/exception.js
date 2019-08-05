@@ -7,6 +7,10 @@ const catchError = async (ctx, next) => {
         await next()
     } catch (error) {
         console.log(error)
+        // 开发环境抛出异常
+        if (global.config.env === 'dev') {
+            throw error
+        }
         if (error instanceof HttpException) {
             ctx.body = {
                 msg: error.msg,

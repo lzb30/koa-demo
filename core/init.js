@@ -6,7 +6,8 @@ class InitManager {
     static InitCore(app) {
         InitManager.app = app
         InitManager.InitLoadRouters()
-        InitManager.InitLoadHttpException()
+        InitManager.LoadHttpException()
+        InitManager.LoadConfig()
     }
 
     static InitLoadRouters() {
@@ -22,7 +23,14 @@ class InitManager {
         }
     }
 
-    static InitLoadHttpException() {
+    static LoadConfig() {
+        const config = require('../config/config')
+        global.config = config
+    }
+
+
+
+    static LoadHttpException() {
         const errors = require('./http-exception')
         global.errors = errors
     }
