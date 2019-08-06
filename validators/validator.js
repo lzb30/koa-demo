@@ -1,6 +1,9 @@
 "use strict";
 
-const { LinValidator, Rule } = require("lin-mizar");
+const {
+  LinValidator,
+  Rule
+} = require("lin-mizar");
 const validator = require("validator");
 
 class EventsValidator extends LinValidator {
@@ -24,7 +27,10 @@ class RegisterValidator extends LinValidator {
     ];
     this.password2 = this.password1;
     this.nickname = [
-      new Rule("isLength", "长度不符合规范", { min: 4, max: 32 })
+      new Rule("isLength", "长度不符合规范", {
+        min: 4,
+        max: 32
+      })
     ];
   }
 

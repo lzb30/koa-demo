@@ -1,4 +1,9 @@
-const { HttpException } = require("../core/http-exception");
+// const {
+//   HttpException
+// } = require("../core/http-exception");
+const {
+  HttpException
+} = require('lin-mizar')
 
 const catchError = async (ctx, next) => {
   try {
